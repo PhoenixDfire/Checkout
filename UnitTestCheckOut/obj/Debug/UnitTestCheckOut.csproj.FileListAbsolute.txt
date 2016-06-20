@@ -1,0 +1,7 @@
+C:\Development\GitHub\Checkout\Checkout\UnitTestCheckOut\obj\Debug\UnitTestCheckOut.csprojResolveAssemblyReference.cache
+C:\Development\GitHub\Checkout\Checkout\UnitTestCheckOut\bin\Debug\UnitTestCheckOut.dll
+C:\Development\GitHub\Checkout\Checkout\UnitTestCheckOut\bin\Debug\UnitTestCheckOut.pdb
+C:\Development\GitHub\Checkout\Checkout\UnitTestCheckOut\bin\Debug\Checkout.exe
+C:\Development\GitHub\Checkout\Checkout\UnitTestCheckOut\bin\Debug\Checkout.pdb
+C:\Development\GitHub\Checkout\Checkout\UnitTestCheckOut\obj\Debug\UnitTestCheckOut.dll
+C:\Development\GitHub\Checkout\Checkout\UnitTestCheckOut\obj\Debug\UnitTestCheckOut.pdb
