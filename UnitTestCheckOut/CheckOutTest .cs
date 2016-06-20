@@ -32,7 +32,7 @@ namespace UnitTestCheckOut
 
             oCheckout.Scan("A");
 
-            Assert.AreEqual(oCheckout.GetTotalPrice(), 0);
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 50);
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace UnitTestCheckOut
 
             oCheckout.Scan("B");
 
-            Assert.AreEqual(oCheckout.GetTotalPrice(), 0);
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 30);
         }
 
         [TestMethod]
@@ -50,9 +50,9 @@ namespace UnitTestCheckOut
         {
             ICheckout oCheckout = new Checkout.Checkout();
 
-            oCheckout.Scan("B");
+            oCheckout.Scan("C");
 
-            Assert.AreEqual(oCheckout.GetTotalPrice(), 0);
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 20);
         }
 
         [TestMethod]
@@ -62,7 +62,7 @@ namespace UnitTestCheckOut
 
             oCheckout.Scan("D");
 
-            Assert.AreEqual(oCheckout.GetTotalPrice(), 0);
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 15);
         }
     }
 }
