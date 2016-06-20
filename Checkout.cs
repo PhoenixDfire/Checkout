@@ -31,13 +31,13 @@ T
     {
         public void Scan(String item)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedEception();
         }
 
         public int GetTotalPrice()
         {
-            throw new System.NotImplementedException();
-            //return 0;
+            //throw new System.NotImplementedException();
+            return 0;
         }
     }
 }
