@@ -64,5 +64,34 @@ namespace UnitTestCheckOut
 
             Assert.AreEqual(oCheckout.GetTotalPrice(), 15);
         }
+
+        [TestMethod]
+        public void BuyShoppingList()
+        {
+            ICheckout oCheckout = new Checkout.Checkout();
+
+            oCheckout.Scan("A");
+            oCheckout.Scan("C");
+            oCheckout.Scan("B");
+            oCheckout.Scan("D");
+            oCheckout.Scan("A");
+         
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 165);
+        }
+
+        [TestMethod]
+        public void BuyShoppingListWithSpecialOffer()
+        {
+            ICheckout oCheckout = new Checkout.Checkout();
+
+            oCheckout.Scan("A");
+            oCheckout.Scan("C");
+            oCheckout.Scan("B");
+            oCheckout.Scan("D");
+            oCheckout.Scan("A");
+            oCheckout.Scan("A"); // Three 'A' Mean Special Offer.
+
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 195);
+        }
     }
 }
