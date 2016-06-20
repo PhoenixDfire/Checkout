@@ -16,13 +16,53 @@ namespace UnitTestCheckOut
         }
 
         [TestMethod]
-        public void BuyShopping()
+        public void BuyShoppingStandard()
         {
             ICheckout oCheckout = new Checkout.Checkout();
 
             oCheckout.Scan("A");
 
-            Assert.Equals(oCheckout.GetTotalPrice(), 0);
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 50);
+        }
+
+        [TestMethod]
+        public void BuyShoppingA()
+        {
+            ICheckout oCheckout = new Checkout.Checkout();
+
+            oCheckout.Scan("A");
+
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 0);
+        }
+
+        [TestMethod]
+        public void BuyShoppingB()
+        {
+            ICheckout oCheckout = new Checkout.Checkout();
+
+            oCheckout.Scan("B");
+
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 0);
+        }
+
+        [TestMethod]
+        public void BuyShoppingC()
+        {
+            ICheckout oCheckout = new Checkout.Checkout();
+
+            oCheckout.Scan("B");
+
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 0);
+        }
+
+        [TestMethod]
+        public void BuyShoppingD()
+        {
+            ICheckout oCheckout = new Checkout.Checkout();
+
+            oCheckout.Scan("D");
+
+            Assert.AreEqual(oCheckout.GetTotalPrice(), 0);
         }
     }
 }

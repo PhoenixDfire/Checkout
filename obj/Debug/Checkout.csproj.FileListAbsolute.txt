@@ -3,3 +3,4 @@ C:\Development\GitHub\Checkout\Checkout\Checkout\bin\Debug\Checkout.exe
 C:\Development\GitHub\Checkout\Checkout\Checkout\bin\Debug\Checkout.pdb
 C:\Development\GitHub\Checkout\Checkout\Checkout\obj\Debug\Checkout.exe
 C:\Development\GitHub\Checkout\Checkout\Checkout\obj\Debug\Checkout.pdb
+C:\Development\GitHub\Checkout\Checkout\Checkout\obj\Debug\Checkout.csprojResolveAssemblyReference.cache

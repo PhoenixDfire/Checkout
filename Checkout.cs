@@ -29,15 +29,36 @@ T
     
     public class Checkout : ICheckout
     {
+        private static List<Product> StockList = new List<Product>{
+            new Product("A", 50, new List<SpecialOffer>{new SpecialOffer(3, 130)}),
+            new Product("B", 30, new List<SpecialOffer>{new SpecialOffer(2, 45)}),
+            new Product("C", 20, null),
+            new Product("D", 15, null)
+        };
+
+        private List<string> ScannedProducts = new List<string>();
+
         public void Scan(String item)
         {
             //throw new System.NotImplementedEception();
+            ScannedProducts.Add(item);
         }
 
         public int GetTotalPrice()
         {
-            //throw new System.NotImplementedException();
-            return 0;
+            int runningtotal = 0;
+
+            foreach (string sProduct in ScannedProducts)
+            {
+                runningtotal += FindPrice(sProduct);
+            }
+
+            return runningtotal;
+        }
+
+        private int FindPrice(string ProdDesc)
+        {
+            return StockList.Find(a => a.Description.Equals(ProdDesc)).Price;
         }
     }
 }
