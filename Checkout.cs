@@ -32,8 +32,8 @@ T
         private static List<Product> StockList = new List<Product>{
             new Product("A", 50, new List<SpecialOffer>{new SpecialOffer(3, 130)}),
             new Product("B", 30, new List<SpecialOffer>{new SpecialOffer(2, 45)}),
-            new Product("C", 20, null),
-            new Product("D", 15, null)
+            new Product("C", 20, new List<SpecialOffer>()),
+            new Product("D", 15, new List<SpecialOffer>())
         };
 
         private List<string> ScannedProducts = new List<string>();
@@ -47,11 +47,31 @@ T
         public int GetTotalPrice()
         {
             int runningtotal = 0;
-
+            int[] itemCount = new int[StockList.Count];
+ 
+            // Get the Number of Products
             foreach (string sProduct in ScannedProducts)
             {
-                runningtotal += FindPrice(sProduct);
+                switch (sProduct)
+                {
+                    case "A":
+                        itemCount[0] += 1;
+                        break;
+                    case "B":
+                        itemCount[1] += 1;
+                        break;
+                    case "C":
+                        itemCount[2] += 1;
+                        break;
+                    case "D":
+                        itemCount[3] += 1;
+                        break;
+                }
             }
+            runningtotal += CalculatePrice("A", itemCount[0]);
+            runningtotal += CalculatePrice("B", itemCount[1]);
+            runningtotal += CalculatePrice("C", itemCount[2]);
+            runningtotal += CalculatePrice("D", itemCount[3]);
 
             return runningtotal;
         }
@@ -59,6 +79,34 @@ T
         private int FindPrice(string ProdDesc)
         {
             return StockList.Find(a => a.Description.Equals(ProdDesc)).Price;
+        }
+
+        private int CalculatePrice(string ProdDesc, int ItemCount)
+        {
+            int ProductTotal = 0;
+            Product oProduct = StockList.Find(a => a.Description.Equals(ProdDesc));
+
+            if (oProduct.Offers.Count > 0)
+            {
+                int iscore = ItemCount / oProduct.Offers[0].NofItems;
+                if (iscore > 0)
+                {
+                    ProductTotal += iscore * oProduct.Offers[0].offerprice;
+                }
+
+                //Process the remainder 
+                iscore = ItemCount % oProduct.Offers[0].NofItems;
+                if (iscore > 0) 
+                {
+                    ProductTotal += (iscore * oProduct.Price);
+                }
+            }
+            else
+            {
+                ProductTotal += (ItemCount * oProduct.Price);
+            }
+            
+            return ProductTotal;
         }
     }
 }
